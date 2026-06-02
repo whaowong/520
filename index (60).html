@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Dear Cammy 💙</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --blue: #3b82f6;
+    --blush: #eff6ff;
+    --deep: #1e40af;
+    --petal: #dbeafe;
+    --cream: #f0f7ff;
+    --text: #1e3a5f;
+    --muted: #6b8cbf;
+  }
+  body {
+    background: var(--cream);
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .petals-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .petal {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--blue);
+    border-radius: 50% 0 50% 0;
+    opacity: 0;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 0.6; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 0 0 60px;
+  }
+  .hero {
+    text-align: center;
+    padding: 54px 28px 36px;
+    background: linear-gradient(180deg, #dbeafe 0%, var(--cream) 100%);
+  }
+  .hearts-line {
+    font-size: 22px;
+    letter-spacing: 8px;
+    margin-bottom: 18px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: var(--deep);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .hero .subtitle {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  .countup-section {
+    margin: 0 20px 28px;
+    background: white;
+    border-radius: 20px;
+    padding: 24px 20px;
+    border: 1px solid #bfdbfe;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(59,130,246,0.08);
+  }
+  .countup-label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .countup-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  .time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .time-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--deep);
+    line-height: 1;
+    min-width: 56px;
+  }
+  .time-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .time-sep {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--blue);
+    padding-bottom: 14px;
+    opacity: 0.5;
+  }
+  .anniversary-date {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .letter-section {
+    margin: 0 20px 28px;
+    padding: 28px 24px;
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #bfdbfe;
+    box-shadow: 0 4px 24px rgba(59,130,246,0.08);
+  }
+  .letter-section p {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--text);
+  }
+  .letter-section .sign-off {
+    margin-top: 24px;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .footer {
+    text-align: center;
+    padding: 8px 0 20px;
+    font-size: 20px;
+    letter-spacing: 8px;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  .video-section {
+    margin: 0 20px 28px;
+  }
+  .video-label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .video-frame {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #bfdbfe;
+    box-shadow: 0 4px 24px rgba(59,130,246,0.08);
+    aspect-ratio: 1 / 1;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="petals-bg" id="petals"></div>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="hearts-line">💙 ✨ 💙</div>
+    <h1>Dear Cammy,</h1>
+    <div class="subtitle">a letter for you</div>
+  </div>
+
+  <div class="countup-section">
+    <div class="countup-label">We have been together for</div>
+    <div class="countup-numbers">
+      <div class="time-block">
+        <div class="time-num" id="days">0</div>
+        <div class="time-label">days</div>
+      </div>
+      <div class="time-sep">·</div>
+      <div class="time-block">
+        <div class="time-num" id="hours">0</div>
+        <div class="time-label">hours</div>
+      </div>
+      <div class="time-sep">·</div>
+      <div class="time-block">
+        <div class="time-num" id="minutes">0</div>
+        <div class="time-label">minutes</div>
+      </div>
+      <div class="time-sep">·</div>
+      <div class="time-block">
+        <div class="time-num" id="seconds">0</div>
+        <div class="time-label">seconds</div>
+      </div>
+    </div>
+    <div class="anniversary-date">since November 3rd 💙</div>
+  </div>
+
+  <div class="letter-section">
+    <p>I love you b~</p>
+    <br>
+    <p>No matter how far apart we are, I will always support you through ur ups and downs, be by your side whenever you need me. 风吹雨打，我都会陪着你度过.</p>
+    <br>
+    <p>I would not be able to give u physical support, to be there physically to comfort you, to give you a hug, but I hope we can stay through this 3-4 years of LDR. Although we will be 9618 km apart with 8 hours time difference, I'll always be a text or a call away. Whenever you have something sad or happy or just want to crashout, talk to me.</p>
+    <br>
+    <p>There will undoubtedly be more quarrels, arguments and misunderstandings to come. More tears, more crashouts, more rage. But hopefully these will not worsen our relationship but strengthen our understanding of each other as time passes. No matter what it is, I hope you won't ever give up on us and we can work on the problems together.</p>
+    <br>
+    <p>Hope we can reunite after these 3 years, and continue to strive through our lives together for many more years to come!</p>
+    <div class="sign-off">— always yours 💙</div>
+  </div>
+
+  <div class="video-section">
+    <div class="video-label">unmute the video and enjoy! 💙</div>
+    <div class="video-frame">
+      <video autoplay loop muted playsinline controls src="thats our first photo tgtt (1).mp4">
+      </video>
+    </div>
+  </div>
+
+  <div class="footer">💙 ✨ 💙 ✨ 💙</div>
+
+</div>
+
+<script>
+const petalsContainer = document.getElementById('petals');
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.width = (6 + Math.random() * 8) + 'px';
+  p.style.height = p.style.width;
+  p.style.animationDuration = (6 + Math.random() * 10) + 's';
+  p.style.animationDelay = (Math.random() * 10) + 's';
+  petalsContainer.appendChild(p);
+}
+
+const start = new Date('2025-11-03T00:00:00');
+function updateCountup() {
+  const now = new Date();
+  const diff = now - start;
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('days').textContent = d;
+  document.getElementById('hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+  document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+}
+updateCountup();
+setInterval(updateCountup, 1000);
+
+let currentSlide = 0;
+let autoTimer;
+
+function slides() { return document.querySelectorAll('.slide'); }
+function dots()   { return document.querySelectorAll('.dot'); }
+
+function goSlide(n) {
+  const sl = slides(), dt = dots(), total = sl.length;
+  sl[currentSlide].classList.remove('active');
+  if (dt[currentSlide]) dt[currentSlide].classList.remove('active');
+  currentSlide = ((n % total) + total) % total;
+  sl[currentSlide].classList.add('active');
+  if (dt[currentSlide]) dt[currentSlide].classList.add('active');
+  document.getElementById('counter').textContent = (currentSlide + 1) + ' / ' + total;
+}
+
+function changeSlide(dir) {
+  clearInterval(autoTimer);
+  goSlide(currentSlide + dir);
+  startAuto();
+}
+
+function startAuto() {
+  autoTimer = setInterval(() => goSlide(currentSlide + 1), 4000);
+}
+startAuto();
+</script>
+</body>
+</html>
